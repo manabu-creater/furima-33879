@@ -56,15 +56,15 @@
 
 # addresses テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | -------------------------------|
-| zip_code         | string     | null: false                    |
-| delivery_area_id | integer    | null: false, foreign_key: true |
-| city             | string     | null: false                    |
-| address1         | string     | null: false                    |
-| address2         | string     |                                |
-| phone            | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | -------------------------------|
+| zip_code          | string     | null: false                    |
+| delivery_area_id  | integer    | null: false, foreign_key: true |
+| city              | string     | null: false                    |
+| address1          | string     | null: false                    |
+| address2          | string     |                                |
+| phone             | string     | null: false                    |
+| order             | references | null: false, foreign_key: true |
 
 ### Association
 
