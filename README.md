@@ -19,7 +19,6 @@
 
 - has_many :items
 - has_many :orders
-- has_one :address
 
 
 ## items テーブル
@@ -46,13 +45,13 @@
 | Column        | Type       | Options                        |
 | ------------- | -----------| ------------------------------ |
 | user          | references | null: false, foreign_key: true |
-| item          | string     | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
 # addresses テーブル
@@ -63,14 +62,13 @@
 | delivery_area_id | integer    | null: false, foreign_key: true |
 | city             | string     | null: false                    |
 | address1         | string     | null: false                    |
-| address2         | string     | null: false                    |
+| address2         | string     |                                |
 | phone            | string     | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :order
-- belongs_to :user
 
 
 
