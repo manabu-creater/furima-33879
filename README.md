@@ -20,15 +20,13 @@
 - has_many :items
 - has_many :orders
 - has_one :address
-- has_one :card
+
 
 ## items テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | -----------| ------------------------------ |
-| image            | string     | null: false                    |
 | name             | string     | null: false                    |
-| size             | integer    | null: false                    |
 | category_id      | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | detail           | text       | null: false                    |
@@ -55,19 +53,19 @@
 - belongs_to :user
 - belongs_to :item
 - belongs_to :address
-- belongs_to :card
+
 
 # addresses テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | -------------------------------|
-| zip_code      | integer    | null: false                    |
-| prefecture    | string     | null: false                    |
-| city          | string     | null: false                    |
-| address1      | string     | null: false                    |
-| address2      | string     | null: false                    |
-| phone         | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | -------------------------------|
+| zip_code         | string     | null: false                    |
+| delivery_area_id | integer    | null: false, foreign_key: true |
+| city             | string     | null: false                    |
+| address1         | string     | null: false                    |
+| address2         | string     | null: false                    |
+| phone            | string     | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -76,16 +74,3 @@
 
 
 
-# cards テーブル
-
-| Column        | Type       | Options                        |
-| card_num      | integer    | null: false                    |
-| validity_y    | integer    | null: false                    |
-| validity_m    | integer    | null: false                    |
-| security_code | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :order
-- belongs_to :user
