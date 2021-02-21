@@ -59,7 +59,7 @@
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | -------------------------------|
 | zip_code          | string     | null: false                    |
-| delivery_area_id  | integer    | null: false, foreign_key: true |
+| delivery_area_id  | integer    | null: false                    |
 | city              | string     | null: false                    |
 | address1          | string     | null: false                    |
 | building          | string     |                                |
