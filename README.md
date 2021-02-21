@@ -30,9 +30,9 @@
 | price            | integer    | null: false                    |
 | detail           | text       | null: false                    |
 | condition_id     | integer    | null: false                    |
-| delivery_day_id  | integer    | null: false, foreign_key: true |
-| delivery_area_id | integer    | null: false, foreign_key: true |
-| delivery_bear_id | integer    | null: false, foreign_key: true |
+| delivery_day_id  | integer    | null: false                    |
+| delivery_area_id | integer    | null: false                    |
+| delivery_bear_id | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
