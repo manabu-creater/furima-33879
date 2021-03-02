@@ -6,13 +6,19 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :detail
-    validates :category_id, numericality: { other_than: 1 }
-    validates :condition_id, numericality: { other_than: 1 }
     validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9999999 }
-    validates :delivery_bear_id, numericality: { other_than: 1 }
-    validates :delivery_area_id, numericality: { other_than: 1 }
-    validates :delivery_day_id, numericality: { other_than: 1 }
+
+    with_options numericality: { other_than: 1 } do
+      validates :category_id
+      validates :condition_id
+      validates :delivery_bear_id
+      validates :delivery_area_id
+      validates :delivery_day_id
+    end
+    
   end
+
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

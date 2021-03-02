@@ -81,6 +81,48 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Price is not included in the list"
       end
+
+      it 'priceは半角英数混合では登録できない' do
+        @item.price = "one million"
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not included in the list"
+      end
+
+      it 'priceは半角英語だけでは登録できない' do
+        @item.price = "five hundred"
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not included in the list"
+      end
+
+      it 'condition_idが1を選択している場合は登録できない' do
+        @item.condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Condition must be other than 1"
+      end
+
+      it 'category_idが1を選択している場合は登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Category must be other than 1"
+      end
+
+      it 'delivery_area_idが1を選択している場合は登録できない' do
+        @item.delivery_area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Delivery area must be other than 1"
+      end
+
+      it 'delivery_bear_idが1を選択している場合は登録できない' do
+        @item.delivery_bear_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Delivery bear must be other than 1"
+      end
+
+      it 'delivery_day_idが1を選択している場合は登録できない' do
+        @item.delivery_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Delivery day must be other than 1"
+      end
     end
   end
 end
