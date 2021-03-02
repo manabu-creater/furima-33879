@@ -9,9 +9,7 @@ RSpec.describe Item, type: :model do
   describe '出品商品登録' do
     context '出品する商品が登録できるとき' do
       it "全ての項目の入力が存在すれば登録できる" do
-        item = FactoryBot.build(:item)
-        item.image = fixture_file_upload('app/assets/images/flag.png')
-        expect(item).to be_valid
+        expect(@item).to be_valid
       end
     end
 
