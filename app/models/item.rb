@@ -6,7 +6,7 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :detail
-    validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9999999 }
+    validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9_999_999 }
 
     with_options numericality: { other_than: 1 } do
       validates :category_id
@@ -15,10 +15,7 @@ class Item < ApplicationRecord
       validates :delivery_area_id
       validates :delivery_day_id
     end
-    
   end
-
-
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
