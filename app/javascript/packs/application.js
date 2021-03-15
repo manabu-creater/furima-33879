@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require("channels")
 //require("jquery")
 require("../items")
+require("../card")
 
 
 
