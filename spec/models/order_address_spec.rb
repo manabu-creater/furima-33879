@@ -82,15 +82,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it 'item_idがないと登録できない' do
-        user = FactoryBot.create(:user)
-        @order_address = FactoryBot.build(:order_address, user_id: user.id)
+        @order_address.item_id = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
 
       it 'user_idがないと登録できない' do
-        item = FactoryBot.create(:item)
-        @order_address = FactoryBot.build(:order_address, item_id: item.id)
+        @order_address.user_id = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("User can't be blank")
       end
