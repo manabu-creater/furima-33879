@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :order_address do
     zip_code { '123-4567' }
-    delivery_area_id { '2' }
+    delivery_area_id { 2 }
     city { '横浜市' }
     address { '1-1' }
     building { '横浜ビル' }
