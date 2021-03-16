@@ -17,51 +17,51 @@ RSpec.describe OrderAddress, type: :model do
 
     context '商品購入ができないこと' do
       it 'zip_codeが空だと登録できない' do
-         @order_address.zip_code = ""
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Zip code can't be blank"
+        @order_address.zip_code = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Zip code can't be blank"
       end
 
       it 'delivery_area_idが空だと登録できない' do
-        @order_address.delivery_area_id = ""
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Delivery area can't be blank"
+        @order_address.delivery_area_id = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Delivery area can't be blank"
       end
 
       it 'cityが空だと登録できない' do
-        @order_address.city = ""
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "City can't be blank"
+        @order_address.city = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "City can't be blank"
       end
 
       it 'addressが空だと登録できない' do
-        @order_address.address = ""
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Address can't be blank"
+        @order_address.address = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Address can't be blank"
       end
 
       it 'phoneが空だと登録ができない' do
-        @order_address.phone = ""
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Phone can't be blank"
+        @order_address.phone = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include "Phone can't be blank"
       end
 
       it 'zip_codeはハイフンがないと登録できない' do
-        @order_address.zip_code = 1234567
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Zip code is invalid"
+        @order_address.zip_code = 1_234_567
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include 'Zip code is invalid'
       end
 
       it 'phoneは11桁以内でないと登録できない' do
-        @order_address.phone = 111111111111
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Phone is invalid"
+        @order_address.phone = 111_111_111_111
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include 'Phone is invalid'
       end
 
       it 'phoneは数値のみでないと登録できない' do
-        @order_address.phone = "0901234567a"
-         @order_address.valid?
-         expect(@order_address.errors.full_messages).to include "Phone is invalid"
+        @order_address.phone = '0901234567a'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include 'Phone is invalid'
       end
 
       it 'tokenが空では登録ができない' do
@@ -70,6 +70,5 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
     end
-
   end
 end
