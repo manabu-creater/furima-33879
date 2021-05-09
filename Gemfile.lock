@@ -338,7 +338,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   uby 2.6.5p114
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.1.4
